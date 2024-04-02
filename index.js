@@ -1,14 +1,14 @@
 const { Telegraf } = require('telegraf');
 
 // Replace 'YOUR_API_ID' and 'YOUR_API_HASH' with your actual API ID and API hash
-const api_id = process.env.API_ID || 'YOUR_API_ID';
-const api_hash = process.env.API_HASH || 'YOUR_API_HASH';
+const api_id = process.env.API_ID || '29505292';
+const api_hash = process.env.API_HASH || 'f8a8deea6f0237f1c2f71660b379b95a';
 
 // Array of group invite links or chat IDs
-const groupLinks = ['GROUP_LINK_1', 'GROUP_LINK_2', 'GROUP_LINK_3'];
+const groupLinks = ['https://t.me/testing6977'];
 
 // Replace 'YOUR_MESSAGE' with the message you want to send
-const messageToSend = 'YOUR_MESSAGE';
+const messageToSend = 'Less goo';
 
 // Replace 'INTERVAL_IN_SECONDS' with the interval at which you want to send the message (in seconds)
 const intervalInSeconds = 60; // Example: sends message every 60 seconds
