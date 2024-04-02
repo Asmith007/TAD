@@ -16,12 +16,18 @@ const intervalInSeconds = 60; // Example: sends message every 60 seconds
 // Create a new instance of Telegraf using your API ID and API hash
 const bot = new Telegraf(api_id, api_hash);
 
+
 // Function to send the message to each group in the array at specified intervals
-function sendMessageAtIntervals() {
+async function sendMessageAtIntervals() {
     const telegram = bot.telegram;
-    groupLinks.forEach(groupLink => {
-        telegram.sendMessage(groupLink, messageToSend);
-    });
+    for (const groupLink of groupLinks) {
+        try {
+            await telegram.sendMessage(groupLink, messageToSend);
+            console.log(`Message sent successfully to group: ${groupLink}`);
+        } catch (error) {
+            console.error(`Error sending message to group ${groupLink}:`, error.description || error);
+        }
+    }
 }
 
 // Call the function initially
