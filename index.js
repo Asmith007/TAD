@@ -5,7 +5,7 @@ const api_id = process.env.API_ID || '29505292';
 const api_hash = process.env.API_HASH || 'f8a8deea6f0237f1c2f71660b379b95a';
 
 // Array of group invite links or chat IDs
-const groupLinks = ['t.me/testing6977'];
+const groupLinks = ['https://t.me/joinchat/testing6977'];
 
 // Replace 'YOUR_MESSAGE' with the message you want to send
 const messageToSend = 'Less goo';
