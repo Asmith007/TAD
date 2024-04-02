@@ -5,7 +5,7 @@ const botToken = process.env.BOT_TOKEN || '6555342416:AAEMqigg4YOpiogyNnqwyBsfQG
 
 // Array of group chat IDs
 const groupChatIds = [
-    '1001837041257', // Replace with the chat ID of the first group
+    '-1001837041257', // Replace with the chat ID of the first group
     // Add more chat IDs as needed
 ];
 
