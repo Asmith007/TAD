@@ -1,24 +1,22 @@
 const { Telegraf } = require('telegraf');
 
-// Replace 'YOUR_API_ID' and 'YOUR_API_HASH' with your actual API ID and API hash
-const api_id = process.env.API_ID || '29505292';
-const api_hash = process.env.API_HASH || 'f8a8deea6f0237f1c2f71660b379b95a';
+// Replace 'YOUR_BOT_TOKEN' with your actual bot token
+const botToken = process.env.BOT_TOKEN || '6555342416:AAEMqigg4YOpiogyNnqwyBsfQG_Kq1pPSCE';
 
 // Array of group chat IDs
 const groupChatIds = [
-    '-1001837041257', // Replace with the chat ID of the first group
+    '1001837041257', // Replace with the chat ID of the first group
     // Add more chat IDs as needed
 ];
 
 // Replace 'YOUR_MESSAGE' with the message you want to send
-const messageToSend = 'Less goo';
+const messageToSend = 'YOUR_MESSAGE';
 
 // Replace 'INTERVAL_IN_SECONDS' with the interval at which you want to send the message (in seconds)
 const intervalInSeconds = 60; // Example: sends message every 60 seconds
 
-
-// Create a new instance of Telegraf using your API ID and API hash
-const bot = new Telegraf(api_id, api_hash);
+// Create a new instance of Telegraf using your bot token
+const bot = new Telegraf(botToken);
 
 // Function to send the message to each group in the array at specified intervals
 async function sendMessageAtIntervals(groupChatIds, messageToSend) {
@@ -43,3 +41,4 @@ setInterval(() => {
 
 // Start the bot
 bot.launch();
+
