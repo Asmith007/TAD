@@ -13,6 +13,9 @@ if (fs.existsSync(lockFilePath)) {
 // Create the lock file
 fs.writeFileSync(lockFilePath, '');
 
+const port = process.env.PORT || 3000; // Default to port 3000 if PORT environment variable is not set
+bot.launch({ webhook: { port } });
+
 // Replace 'YOUR_BOT_TOKEN' with your actual bot token
 const botToken = process.env.BOT_TOKEN || '6555342416:AAEMqigg4YOpiogyNnqwyBsfQG_Kq1pPSCE';
 
@@ -32,15 +35,22 @@ const intervalInSeconds = 60; // Example: sends message every 60 seconds
 const bot = new Telegraf(botToken);
 
 // Function to send the message to each group in the array at specified intervals
-async function sendMessageAtIntervals(groupChatIds, messageToSend) {
-    const telegram = bot.telegram;
-    for (const chatId of groupChatIds) {
-        try {
-            await telegram.sendMessage(chatId, messageToSend);
-            console.log(`Message sent successfully to group with chat ID: ${chatId}`);
-        } catch (error) {
-            console.error(`Error sending message to group with chat ID ${chatId}:`, error.description || error);
+// Function to send the message to each group in the array
+async function sendMessageToGroups() {
+    if (!isSendingMessage) {
+        isSendingMessage = true;
+        const telegram = bot.telegram;
+        for (const chatId of groupChatIds) {
+            try {
+                await telegram.sendMessage(chatId, messageToSend);
+                console.log(`Message sent successfully to group with chat ID: ${chatId}`);
+            } catch (error) {
+                console.error(`Error sending message to group with chat ID ${chatId}:`, error.description || error);
+            }
         }
+        isSendingMessage = false;
+    } else {
+        console.log('Message sending is already in progress. Skipping this interval.');
     }
 }
 
