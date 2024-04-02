@@ -16,9 +16,9 @@ const messageToSend = 'Less goo';
 // Replace 'INTERVAL_IN_SECONDS' with the interval at which you want to send the message (in seconds)
 const intervalInSeconds = 60; // Example: sends message every 60 seconds
 
+
 // Create a new instance of Telegraf using your API ID and API hash
 const bot = new Telegraf(api_id, api_hash);
-
 
 // Function to send the message to each group in the array at specified intervals
 async function sendMessageAtIntervals(groupChatIds, messageToSend) {
@@ -34,10 +34,12 @@ async function sendMessageAtIntervals(groupChatIds, messageToSend) {
 }
 
 // Call the function initially
-sendMessageAtIntervals();
+sendMessageAtIntervals(groupChatIds, messageToSend);
 
 // Set an interval to call the function at specified intervals
-setInterval(sendMessageAtIntervals, intervalInSeconds * 1000);
+setInterval(() => {
+    sendMessageAtIntervals(groupChatIds, messageToSend);
+}, intervalInSeconds * 1000);
 
 // Start the bot
 bot.launch();
