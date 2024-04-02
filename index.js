@@ -21,14 +21,14 @@ const bot = new Telegraf(api_id, api_hash);
 
 
 // Function to send the message to each group in the array at specified intervals
-async function sendMessageAtIntervals() {
+async function sendMessageAtIntervals(groupChatIds, messageToSend) {
     const telegram = bot.telegram;
-    for (const groupLink of groupLinks) {
+    for (const chatId of groupChatIds) {
         try {
-            await telegram.sendMessage(groupLink, messageToSend);
-            console.log(`Message sent successfully to group: ${groupLink}`);
+            await telegram.sendMessage(chatId, messageToSend);
+            console.log(`Message sent successfully to group with chat ID: ${chatId}`);
         } catch (error) {
-            console.error(`Error sending message to group ${groupLink}:`, error.description || error);
+            console.error(`Error sending message to group with chat ID ${chatId}:`, error.description || error);
         }
     }
 }
