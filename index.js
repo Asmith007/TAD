@@ -1,4 +1,17 @@
+const fs = require('fs');
 const { Telegraf } = require('telegraf');
+
+// Path to the lock file
+const lockFilePath = './bot.lock';
+
+// Check if the lock file exists
+if (fs.existsSync(lockFilePath)) {
+    console.log('Another instance of the bot is already running. Exiting...');
+    process.exit(1); // Exit the current process
+}
+
+// Create the lock file
+fs.writeFileSync(lockFilePath, '');
 
 // Replace 'YOUR_BOT_TOKEN' with your actual bot token
 const botToken = process.env.BOT_TOKEN || '6555342416:AAEMqigg4YOpiogyNnqwyBsfQG_Kq1pPSCE';
@@ -10,7 +23,7 @@ const groupChatIds = [
 ];
 
 // Replace 'YOUR_MESSAGE' with the message you want to send
-const messageToSend = 'YOUR_MESSAGE';
+const messageToSend = 'Lesss Gooooo';
 
 // Replace 'INTERVAL_IN_SECONDS' with the interval at which you want to send the message (in seconds)
 const intervalInSeconds = 60; // Example: sends message every 60 seconds
@@ -40,5 +53,11 @@ setInterval(() => {
 }, intervalInSeconds * 1000);
 
 // Start the bot
-bot.launch();
-
+bot.launch().then(() => {
+    console.log('Bot started successfully.');
+}).catch((error) => {
+    console.error('Error starting bot:', error);
+}).finally(() => {
+    // Remove the lock file when the bot is stopped
+    fs.unlinkSync(lockFilePath);
+});
