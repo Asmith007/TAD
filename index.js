@@ -6,7 +6,7 @@ const api_hash = process.env.API_HASH || 'f8a8deea6f0237f1c2f71660b379b95a';
 
 // Array of group chat IDs
 const groupChatIds = [
-    '1001837041257', // Replace with the chat ID of the first group
+    '-1001837041257', // Replace with the chat ID of the first group
     // Add more chat IDs as needed
 ];
 
