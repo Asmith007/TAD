@@ -1,18 +1,6 @@
 const fs = require('fs');
 const { Telegraf } = require('telegraf');
 
-// Path to the lock file
-const lockFilePath = './bot.lock';
-
-// Check if the lock file exists
-if (fs.existsSync(lockFilePath)) {
-    console.log('Another instance of the bot is already running. Exiting...');
-    process.exit(1); // Exit the current process
-}
-
-// Create the lock file
-fs.writeFileSync(lockFilePath, '');
-
 const port = process.env.PORT || 3000; // Default to port 3000 if PORT environment variable is not set
 bot.launch({ webhook: { port } });
 
@@ -67,7 +55,4 @@ bot.launch().then(() => {
     console.log('Bot started successfully.');
 }).catch((error) => {
     console.error('Error starting bot:', error);
-}).finally(() => {
-    // Remove the lock file when the bot is stopped
-    fs.unlinkSync(lockFilePath);
-});
+}).finally(()
