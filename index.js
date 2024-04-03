@@ -1,4 +1,3 @@
-const fs = require('fs');
 const { Telegraf } = require('telegraf');
 
 const port = process.env.PORT || 3000; // Default to port 3000 if PORT environment variable is not set
@@ -14,7 +13,7 @@ const groupChatIds = [
 ];
 
 // Replace 'YOUR_MESSAGE' with the message you want to send
-const messageToSend = 'Lesss Gooooo';
+const messageToSend = '@Lucifer07';
 
 // Replace 'INTERVAL_IN_SECONDS' with the interval at which you want to send the message (in seconds)
 const intervalInSeconds = 60; // Example: sends message every 60 seconds
@@ -22,7 +21,9 @@ const intervalInSeconds = 60; // Example: sends message every 60 seconds
 // Create a new instance of Telegraf using your bot token
 const bot = new Telegraf(botToken);
 
-// Function to send the message to each group in the array at specified intervals
+// Flag to indicate whether the message-sending function is currently running
+let isSendingMessage = false;
+
 // Function to send the message to each group in the array
 async function sendMessageToGroups() {
     if (!isSendingMessage) {
@@ -43,7 +44,7 @@ async function sendMessageToGroups() {
 }
 
 // Call the function initially
-sendMessageAtIntervals(groupChatIds, messageToSend);
+sendMessageToGroups();
 
 // Set an interval to call the function at specified intervals
 setInterval(() => {
@@ -51,8 +52,4 @@ setInterval(() => {
 }, intervalInSeconds * 1000);
 
 // Start the bot
-bot.launch().then(() => {
-    console.log('Bot started successfully.');
-}).catch((error) => {
-    console.error('Error starting bot:', error);
-}).finally(()
+bot.launch();
