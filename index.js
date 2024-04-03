@@ -1,7 +1,5 @@
 const { Telegraf } = require('telegraf');
 
-const port = process.env.PORT || 3000; // Default to port 3000 if PORT environment variable is not set
-bot.launch({ webhook: { port } });
 
 // Replace 'YOUR_BOT_TOKEN' with your actual bot token
 const botToken = process.env.BOT_TOKEN || '6555342416:AAEMqigg4YOpiogyNnqwyBsfQG_Kq1pPSCE';
