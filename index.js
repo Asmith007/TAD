@@ -14,7 +14,7 @@ const groupChatIds = [
 const messageToSend = '@Lucifer07';
 
 // Replace 'INTERVAL_IN_SECONDS' with the interval at which you want to send the message (in seconds)
-const intervalInSeconds = 60; // Example: sends message every 60 seconds
+const intervalInSeconds = 300; // Example: sends message every 60 seconds
 
 // Create a new instance of Telegraf using your bot token
 const bot = new Telegraf(botToken);
