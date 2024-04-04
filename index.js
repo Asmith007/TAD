@@ -56,4 +56,7 @@ sendMessageToGroups();
 // Set an interval to call the function at specified intervals
 setInterval(() => {
     sendMessageToGroups();
+    // Restart the deployment every 10 minutes
+    console.log('Restarting deployment...');
+    process.exit(0); // Exit the current process to trigger a restart
 }, intervalInSeconds * 1000);
