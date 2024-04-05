@@ -10,7 +10,7 @@ const webhookUrl = 'https://api.telegram.org/bot6555342416:AAEMqigg4YOpiogyNnqwy
 // Array of group chat IDs
 const groupChatIds = [
     '-1001837041257',
-    '-1001615442075',// Replace with the chat ID of the first group
+    '-1001964876272',// Replace with the chat ID of the first group
     // Add more chat IDs as needed
 ];
 
