@@ -9,12 +9,13 @@ const webhookUrl = 'https://api.telegram.org/bot6555342416:AAEMqigg4YOpiogyNnqwy
 
 // Array of group chat IDs
 const groupChatIds = [
-    '-1001837041257', // Replace with the chat ID of the first group
+    '-1001837041257',
+    '-1001615442075',// Replace with the chat ID of the first group
     // Add more chat IDs as needed
 ];
 
 // Replace 'YOUR_MESSAGE' with the message you want to send
-const messageToSend = '@Lucifer07';
+const messageToSend = '**Selling⚡      __TELEGRAM__ and __WHATSAPP__ OTP       DM ME     ESCROW ACCEPTED🔥**';
 
 // Replace 'INTERVAL_IN_SECONDS' with the interval at which you want to send the message (in seconds)
 const intervalInSeconds = 180; // Example: sends message every 300 seconds
